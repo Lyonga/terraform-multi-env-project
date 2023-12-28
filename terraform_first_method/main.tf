@@ -22,3 +22,11 @@ module "myapp-server" {
   default_security_group_id = module.myapp-security-group.security_group.id
   key_name                  = var.key_name
 }
+
+module "test_scp" {
+  source          = "./modules/scp"
+  scp_name        = "TestSCP"
+  scp_description = "SCP for diff Environment"
+  scp_content     = var.scp_content
+  target_ou_id    = var.ou_id
+}
